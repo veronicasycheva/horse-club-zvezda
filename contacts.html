@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Конный клуб «Звезда»</title>
+	<link rel="stylesheet" href="style.css">
+	<link href="https://googleapis.com" rel="stylesheet">
+</head>
+
+<body>
+
+	<header>
+		<div class="container header-flex">
+			<div class="logo">ЗВЕЗДА<span>✦</span></div>
+			<ul class="nav">
+				<li><a href="index.html" >Главная </a></li>
+				<li><a href="instructors.html">Инструкторы</a></li>
+				<li><a href="horses.html">Лошади</a></li>
+				<li><a href="contacts.html" class="active">Контакты</a></li>
+			</ul>
+			<div class="burger" id="burgerBtn">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<!-- форма + контакты -->
+		<section class="section">
+			<div class="container form-block">
+				<div>
+					<h3 style="font-size: 1.8rem; margin-bottom: 16px;">Свяжитесь с нами</h3>
+					<p><img src="images/map-marker.png" class="contact-icon"> Московская обл., дер. Звёздная, 15</p>
+					<p><img src="images/mobile-button.png" class="contact-icon"> +7 (999) 999-99-99</p>
+					<p><img src="images/envelope-open.png" class="contact-icon"> star@horseclub.ru</p>
+				</div>
+				<form id="contactsForm">
+					<input type="text" id="contactsName" placeholder="Ваше имя" style="margin-bottom: 16px;">
+					<input type="tel" id="contactsPhone" placeholder="Телефон" style="margin-bottom: 16px;">
+					<textarea rows="3" placeholder="Ваше сообщение"></textarea>
+					<button type="submit" style="margin-top: 20px;">Отправить</button>
+					<p style="margin-top: 12px; font-size: 12px; text-align: center;">Мы перезвоним в ближайшее время</p>
+					<p id="contactsError" class="error-message"></p>
+				</form>
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<div class="container">
+			<p>© 2026 Конный клуб «Звезда»</p>
+		</div>
+	</footer>
+
+	<script>
+
+		// БУРГЕР-МЕНЮ
+		const burger = document.getElementById('burgerBtn');
+		const navMenu = document.querySelector('.nav');
+
+		if (burger && navMenu) {
+			burger.addEventListener('click', function () {
+				navMenu.classList.toggle('active');
+			});
+		}
+
+		const contactsForm = document.getElementById('contactsForm');
+		const contactsError = document.getElementById('contactsError');
+
+		function validatePhone(phone) {
+			const digits = phone.replace(/\D/g, '');
+			return digits.length === 11;
+		}
+
+		if (contactsForm) {
+			contactsForm.addEventListener('submit', function (e) {
+				e.preventDefault();
+
+				const name = document.getElementById('contactsName').value.trim();
+				if (name.length < 2) {
+					contactsError.textContent = 'Введите ваше имя (минимум 2 символа)';
+					return;
+				}
+
+				const phone = document.getElementById('contactsPhone').value.trim();
+				if (!validatePhone(phone)) {
+					contactsError.textContent = 'Введите телефон: 11 цифр (например, 79991234567)';
+					return;
+				}
+				alert('Спасибо! Мы свяжемся с вами.');
+				contactsForm.reset();
+				contactsError.textContent = '';
+			});
+		}
+	</script>
+
+</body>
+
+</html>

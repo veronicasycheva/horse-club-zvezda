@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Конный клуб «Звезда»</title>
+	<link rel="stylesheet" href="style.css">
+	<link href="https://googleapis.com" rel="stylesheet">
+</head>
+
+
+<body>
+
+	<header>
+		<div class="container header-flex">
+			<div class="logo">ЗВЕЗДА<span>✦</span></div>
+			<ul class="nav">
+				<li><a href="index.html" class="active">Главная </a></li>
+				<li><a href="instructors.html">Инструкторы</a></li>
+				<li><a href="horses.html">Лошади</a></li>
+				<li><a href="contacts.html">Контакты</a></li>
+			</ul>
+			<div class="burger" id="burgerBtn">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<section class="hero">
+			<div class="container hero-grid">
+				<div>
+					<h1 class="hero-title">Конный клуб <span>«Звезда»</span></h1>
+					<p class="hero-text">Мы уже 10 лет открываем для гостей мир конного спорта и загородного отдыха. В клубе «Звезда» вас ждут дипломированные
+					тренеры и 7 ласковых, идеально обученных лошадей. Мы находимся всего в 20 минутах от города в живописном хвойном лесу —
+					это идеальное место, чтобы сбежать от суеты, освоить верховую езду или отправиться на прогулку.
+					Работаем в любую погоду, у нас есть крытый манеж для зимы и дождя.
+					Взрослые, дети — мы ждём вас!</p>
+					<div class="buttons">
+						<a href="#" class="btn btn-primary" id="openModalBtn">Записаться</a>
+						<a href="#services" class="btn btn-outline">Услуги</a>
+					</div>
+				</div>
+				<div class="hero-img"></div>
+			</div>
+		</section>
+
+		<!-- услуги (3 штуки) -->
+		<section class="section">
+			<div class="container">
+				<h2 class="section-title" id="services">Наши услуги</h2>
+				<div class="cards">
+					<div class="card">
+						<h3>Прогулки</h3>
+						<h4>Конные прогулки по лесу и полю с инструктором.</h4>
+						<p>Откройте для себя красоту первозданной природы верхом на лошади. Мы предлагаем разнообразные живописные маршруты по
+						густому лесу, бескрайним полям и вдоль берега водоема. Каждая прогулка проходит в сопровождении опытного инструктора,
+						который позаботится о вашей безопасности и поможет уверенно держаться в седле. Перед отправлением проводится
+						обязательный подробный инструктаж.</p>
+					</div>
+					<div class="card">
+						<h3>Обучение</h3>
+						<h4>Индивидуальные занятия с нуля и для продвинутых.</h4>
+						<p>Индивидуальные и групповые занятия для всадников любого возраста и уровня подготовки. Наша программа рассчитана как на
+						новичков, которые впервые подходят к лошади («обучение с нуля»), так и на опытных всадников, желающих усовершенствовать
+						свои навыки в спортивных дисциплинах (конкур, выездка). Занятия проходят на специально оборудованном плацу или в крытом
+						манеже под руководством квалифицированных тренеров.</p>
+					</div>
+					<div class="card">
+						<h3>Иппотерапия</h3>
+						<h4>Лечебная верховая езда с сертифицированными специалистами.</h4>
+						<p>Уникальный метод реабилитации и оздоровления посредством живого общения с лошадью и верховой езды. Направлен на
+						улучшение физического и психоэмоционального состояния. Занятия проводятся строго индивидуально сертифицированными
+						специалистами по иппотерапии (конетерапевтами) и специально обученными, максимально спокойными лошадьми. Метод признан
+						эффективным средством адаптивной физкультуры.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<div class="container">
+			<p>© 2026 Конный клуб «Звезда»</p>
+		</div>
+	</footer>
+
+	<!-- МОДАЛЬНОЕ ОКНО -->
+	<div id="modal" class="modal">
+		<div class="modal-content">
+			<span class="close-btn" id="closeModalBtn">&times;</span>
+			<h2 style="margin-bottom: 20px; color: #5E2E6E;">Запись в клуб</h2>
+
+			<form id="bookingForm">
+				<div class="form-group">
+					<label>Ваше имя</label>
+					<input type="text" id="name" required>
+				</div>
+
+				<div class="form-group">
+					<label>Телефон</label>
+					<input type="tel" id="phone" required>
+				</div>
+
+				<div class="form-group">
+					<label>Что вас интересует?</label>
+					<div class="checkbox-group">
+						<label><input type="checkbox" name="service" value="прогулка"> Прогулка</label>
+						<label><input type="checkbox" name="service" value="обучение"> Обучение</label>
+						<label><input type="checkbox" name="service" value="иппотерапия"> Иппотерапия</label>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label>Выберите тренера</label>
+					<select id="trainer">
+						<option value="">Не выбран</option>
+						<option value="Анна Волкова">Анна Волкова</option>
+						<option value="Дмитрий Орлов">Дмитрий Орлов</option>
+						<option value="Елена Морозова">Елена Морозова</option>
+						<option value="Михаил Соколов">Михаил Соколов</option>
+						<option value="Ксения Белова">Ксения Белова</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label>Выберите лошадь</label>
+					<select id="horse">
+						<option value="">Не выбрана</option>
+						<option value="Орион">Орион</option>
+						<option value="Вега">Вега</option>
+						<option value="Сириус">Сириус</option>
+						<option value="Заря">Заря</option>
+						<option value="Альтаир">Альтаир</option>
+						<option value="Заря">Валларис</option>
+						<option value="Альтаир">Гром</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label>Желаемая дата</label>
+					<input type="date" id="date" required>
+				</div>
+
+				<button type="submit" class="btn btn-primary" style="width: 100%;">Отправить заявку</button>
+				<p id="formError" class="error-message"></p>
+			</form>
+		</div>
+	</div>
+
+	<script>
+
+		// БУРГЕР-МЕНЮ
+		const burger = document.getElementById('burgerBtn');
+		const navMenu = document.querySelector('.nav');
+
+		if (burger && navMenu) {
+			burger.addEventListener('click', function () {
+				navMenu.classList.toggle('active');
+			});
+		}
+
+		const modal = document.getElementById('modal');
+		const openBtn = document.getElementById('openModalBtn');
+		const closeBtn = document.getElementById('closeModalBtn');
+		const form = document.getElementById('bookingForm');
+		const errorDiv = document.getElementById('formError');
+
+		openBtn.onclick = function (e) {
+			e.preventDefault();
+			modal.style.display = 'flex';
+		}
+
+		closeBtn.onclick = function () {
+			modal.style.display = 'none';
+		}
+
+		window.onclick = function (e) {
+			if (e.target === modal) {
+				modal.style.display = 'none';
+			}
+		}
+
+		function validatePhone(phone) {
+			const digits = phone.replace(/\D/g, '');
+			return digits.length === 11;
+		}
+
+		form.onsubmit = function (e) {
+			e.preventDefault();
+
+			const name = document.getElementById('name').value.trim();
+			if (name.length < 2) {
+				errorDiv.textContent = 'Пожалуйста, введите ваше имя (минимум 2 символа)';
+				return;
+			}
+
+			const phone = document.getElementById('phone').value.trim();
+			if (!validatePhone(phone)) {
+				errorDiv.textContent = 'Введите телефон в формате 11 цифр (например, 79991234567)';
+				return;
+			}
+
+			const checkboxes = document.querySelectorAll('input[name="service"]:checked');
+			if (checkboxes.length === 0) {
+				errorDiv.textContent = 'Выберите хотя бы одну услугу';
+				return;
+			}
+
+			const date = document.getElementById('date').value;
+			if (!date) {
+				errorDiv.textContent = 'Выберите желаемую дату';
+				return;
+			}
+
+			const selectedServices = Array.from(checkboxes).map(cb => cb.value).join(', ');
+			const trainer = document.getElementById('trainer').value || 'не выбран';
+			const horse = document.getElementById('horse').value || 'не выбрана';
+
+			alert(`Спасибо, ${name}!\n\nВаша заявка принята:\n Телефон: ${phone}\n Дата: ${date}\n Услуга: ${selectedServices}\n Тренер: ${trainer}\n Лошадь: ${horse}\n\nМы свяжемся с вами в ближайшее время.`);
+
+			form.reset();
+			errorDiv.textContent = '';
+
+			modal.style.display = 'none';
+		}
+	</script>
+
+</body>
+
+</html>
